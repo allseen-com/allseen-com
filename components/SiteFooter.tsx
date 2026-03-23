@@ -57,8 +57,9 @@ export function SiteFooter() {
             </div>
           </div>
         </div>
-
-        <p className="mt-10 border-t border-black/5 pt-8 text-center text-xs text-ink/45">
+      </div>
+      <div className="border-t border-black/5 bg-black">
+        <p className="mx-auto max-w-6xl px-4 py-8 text-center text-xs text-white sm:px-6 lg:px-8">
           © {year} {SITE.name}. All rights reserved.
         </p>
       </div>

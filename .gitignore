@@ -31,8 +31,31 @@ yarn-error.log*
 
 # env
 .env
+.env.*
+!.env.example
 .env*.local
 .vercel
+
+# secrets and private credentials
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.keystore
+*.mobileprovision
+*.asc
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*_rsa
+*_dsa
+*_ecdsa
+*_ed25519
+credentials.json
+service-account*.json
 
 # typescript
 *.tsbuildinfo
