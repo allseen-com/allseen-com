@@ -24,10 +24,11 @@ export const metadata: Metadata = {
   },
 };
 
-const FEATURED_VIDEO = {  title: "Cosmic Consciousness",
+const FEATURED_VIDEO = {
+  title: "Cosmic Consciousness",
   description:
     "The psychedelic brain feels the cosmic consciousness and its connection to our neural pathways. This experience traces cosmic connections that shape how we understand existence — mind, consciousness, and the universe within.",
-  src: "https://allseen.com/wp-content/uploads/2024/08/Psychedelic%20Brain%20-%20Cosmic%20Consciousness%20Trippy%20Video.mp4",
+  youtubeVideoId: "uLXDDrxk2eQ",
 };
 
 export default function HomePage() {
@@ -54,7 +55,7 @@ export default function HomePage() {
       <VideoFeature
         title={FEATURED_VIDEO.title}
         description={FEATURED_VIDEO.description}
-        src={FEATURED_VIDEO.src}
+        youtubeVideoId={FEATURED_VIDEO.youtubeVideoId}
       />
 
       <section
