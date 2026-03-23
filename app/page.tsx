@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { ShowcaseGrid } from "@/components/ShowcaseGrid";
 import { VideoFeature } from "@/components/VideoFeature";
@@ -5,8 +6,25 @@ import { SHOWCASE_ITEMS } from "@/lib/showcase";
 import { SITE } from "@/lib/site";
 import { TESTIMONIALS } from "@/lib/testimonials";
 
-const FEATURED_VIDEO = {
-  title: "Cosmic Consciousness",
+/** Homepage: brand-led title, no layout `title.template` suffix. */
+export const metadata: Metadata = {
+  title: { absolute: SITE.title },
+  description: SITE.description,
+  openGraph: {
+    title: SITE.title,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.title,
+    description: SITE.description,
+  },
+};
+
+const FEATURED_VIDEO = {  title: "Cosmic Consciousness",
   description:
     "The psychedelic brain feels the cosmic consciousness and its connection to our neural pathways. This experience traces cosmic connections that shape how we understand existence — mind, consciousness, and the universe within.",
   src: "https://allseen.com/wp-content/uploads/2024/08/Psychedelic%20Brain%20-%20Cosmic%20Consciousness%20Trippy%20Video.mp4",
@@ -18,11 +36,11 @@ export default function HomePage() {
       <Hero />
 
       <section className="border-y border-black/5 bg-white px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="font-display text-3xl font-bold leading-[1.12] tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1] xl:text-5xl xl:leading-tight">
             AI solutions to improve performance, in many aspects.
-          </p>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+          </h2>
+          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-accent sm:mt-4">
             Powered by creativity.
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-ink/65">

@@ -5,6 +5,7 @@
 
 export const SITE = {
   name: "All Seen",
+  /** Browser `<title>` and social previews — brand name first. */
   title: "All Seen — Technology, Art, Adventure",
   description:
     "Cutting-edge platforms and AI-driven solutions to help individuals and businesses improve performance through advanced automation.",

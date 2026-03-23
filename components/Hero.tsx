@@ -5,14 +5,14 @@ const HERO_IMAGE = "/images/hero-many-lenses.png";
 export function Hero() {
   return (
     <section className="relative overflow-hidden px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center lg:gap-8">
-        <div>
+      <div className="mx-auto grid max-w-6xl gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center lg:gap-8">
+        <div className="min-w-0">
           <p className="font-display text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] xl:text-6xl">
-            <span className="block">World,</span>
-            <span className="block">through many</span>
-            <span className="block">lenses</span>
+            <span className="block text-balance">World,</span>
+            <span className="block text-balance">through many</span>
+            <span className="block text-balance">lenses</span>
           </p>
-          <p className="font-display mt-6 text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] xl:text-6xl">
+          <h1 className="font-display mt-6 text-4xl font-bold leading-tight tracking-tight text-ink sm:mt-8 sm:text-5xl lg:mt-6 lg:text-[3.25rem] xl:text-6xl">
             <span className="relative inline-block">
               <span className="relative z-10">All seen</span>
               <svg
@@ -31,10 +31,10 @@ export function Hero() {
               </svg>
             </span>{" "}
             by us.
-          </p>
+          </h1>
         </div>
 
-        <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+        <div className="relative mx-auto w-full min-w-0 max-w-lg lg:mx-0 lg:max-w-none">
           <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-slate-100 shadow-xl shadow-black/10 ring-1 ring-black/5">
             <Image
               src={HERO_IMAGE}
