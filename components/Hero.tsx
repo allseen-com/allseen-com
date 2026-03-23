@@ -1,3 +1,7 @@
+import Image from "next/image";
+
+const HERO_IMAGE = "/images/hero-many-lenses.png";
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8">
@@ -31,30 +35,15 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-highlight/90 via-white to-sky-400/80 shadow-xl shadow-black/10 ring-1 ring-black/5">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.5),transparent_50%)]" />
-            <div className="absolute left-6 top-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/90 shadow-md ring-1 ring-black/5">
-              <svg
-                className="h-8 w-8 text-ink"
-                viewBox="0 0 32 32"
-                fill="none"
-                aria-hidden
-              >
-                <ellipse cx="11" cy="14" rx="4" ry="5" fill="currentColor" />
-                <ellipse cx="21" cy="14" rx="4" ry="5" fill="currentColor" />
-              </svg>
-            </div>
-            <p className="absolute bottom-6 left-6 right-6 font-display text-lg font-bold leading-snug text-ink/85 drop-shadow-sm">
-              Technology, art, adventure — one studio, many outputs.
-            </p>
-          </div>
-          <div className="absolute -bottom-4 -right-2 flex max-w-[9rem] rotate-3 items-center gap-2 rounded-2xl bg-white p-3 shadow-lg ring-1 ring-black/5 sm:-right-4">
-            <span className="font-mono text-2xl font-bold text-accent" aria-hidden>
-              {"{}"}
-            </span>
-            <span className="text-[10px] font-medium leading-tight text-ink/70">
-              Code, film, product — all in flow.
-            </span>
+          <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-slate-100 shadow-xl shadow-black/10 ring-1 ring-black/5">
+            <Image
+              src={HERO_IMAGE}
+              alt="Nine perspectives on seeing: people with lenses, optics, and creative tools — many lenses, one studio."
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
           </div>
         </div>
       </div>

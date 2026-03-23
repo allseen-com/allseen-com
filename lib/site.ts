@@ -37,7 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Chatbots",
-    href: "https://allseen.com",
+    href: "https://poe.com/AllSeen",
     external: true,
     icon: "external",
   },
@@ -55,13 +55,13 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "CV",
-    href: "https://www.linkedin.com/in/meysamsoheili/",
+    href: "https://cv.allseen.com/",
     external: true,
     icon: "id",
   },
   {
     label: "Footage",
-    href: "https://www.youtube.com/@all_seen",
+    href: "https://videohive.net/user/allseen/portfolio",
     external: true,
     icon: "film",
   },

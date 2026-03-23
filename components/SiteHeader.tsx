@@ -58,9 +58,9 @@ export function SiteHeader() {
           <Image
             src={LOGO_URL}
             alt={`${SITE.name} logo`}
-            width={200}
-            height={48}
-            className="h-9 w-auto sm:h-10"
+            width={230}
+            height={55}
+            className="h-[2.59rem] w-auto sm:h-[2.88rem]"
             priority
           />
         </Link>
