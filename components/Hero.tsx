@@ -1,20 +1,3 @@
-import Link from "next/link";
-import { CTA } from "@/lib/site";
-
-function TrendIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export function Hero() {
   return (
     <section className="relative overflow-hidden px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8">
@@ -45,24 +28,6 @@ export function Hero() {
             </span>{" "}
             by us.
           </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href={CTA.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
-            >
-              <TrendIcon />
-              YouTube Channel
-            </a>
-            <Link
-              href="/#work"
-              className="text-sm font-semibold text-ink/70 underline-offset-4 transition-colors hover:text-ink hover:underline"
-            >
-              View featured work
-            </Link>
-          </div>
         </div>
 
         <div className="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">

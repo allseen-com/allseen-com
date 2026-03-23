@@ -20,23 +20,20 @@ function ChartIcon() {
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-surface/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex shrink-0 items-center gap-2 transition-opacity hover:opacity-80"
+      <div className="mx-auto grid max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
+        <a
+          href={CTA.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex shrink-0 items-center gap-2 justify-self-start rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
         >
-          <Image
-            src={LOGO_URL}
-            alt={`${SITE.name} logo`}
-            width={200}
-            height={48}
-            className="h-9 w-auto sm:h-10"
-            priority
-          />
-        </Link>
+          <ChartIcon />
+          <span className="hidden sm:inline">Chat with Human</span>
+          <span className="sm:hidden">Chat</span>
+        </a>
 
         <nav
-          className="hidden items-center gap-1 lg:flex lg:gap-0.5"
+          className="hidden justify-center justify-self-center lg:flex lg:items-center lg:gap-0.5"
           aria-label="Primary"
         >
           {NAV_ITEMS.map((item) => (
@@ -54,16 +51,19 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a
-          href={CTA.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
+        <Link
+          href="/"
+          className="flex shrink-0 items-center justify-self-end transition-opacity hover:opacity-80"
         >
-          <ChartIcon />
-          <span className="hidden sm:inline">Chat with Human</span>
-          <span className="sm:hidden">Chat</span>
-        </a>
+          <Image
+            src={LOGO_URL}
+            alt={`${SITE.name} logo`}
+            width={200}
+            height={48}
+            className="h-9 w-auto sm:h-10"
+            priority
+          />
+        </Link>
       </div>
 
       <nav
