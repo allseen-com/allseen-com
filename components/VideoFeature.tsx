@@ -53,6 +53,21 @@ export function VideoFeature({
             allowFullScreen
             aria-label={title}
           />
+          <div
+            className="pointer-events-none absolute inset-0 z-20 flex items-end justify-center pb-6 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100 sm:pb-8"
+          >
+            <a
+              href={`https://www.youtube.com/watch?v=${youtubeVideoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white/95 shadow-lg backdrop-blur-md transition-colors hover:border-white/40 hover:bg-white/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
+            >
+              Watch &ldquo;{title}&rdquo; on YouTube
+              <span className="text-white/60" aria-hidden>
+                ↗
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

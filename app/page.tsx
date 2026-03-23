@@ -26,8 +26,7 @@ export const metadata: Metadata = {
 
 const FEATURED_VIDEO = {
   title: "Cosmic Consciousness",
-  description:
-    "The psychedelic brain feels the cosmic consciousness and its connection to our neural pathways. This experience traces cosmic connections that shape how we understand existence — mind, consciousness, and the universe within.",
+  description: `There is a global consciousness — larger than any one of us — spreading above and beyond what we can hold alone. We are all part of it, and we can learn to see it. At ${SITE.name}, we look at cycles from every possible angle, connect the dots, and automate in ways that feel natural: the same patterns of harmony the wider universe keeps teaching us.`,
   youtubeVideoId: "uLXDDrxk2eQ",
 };
 
