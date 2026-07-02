@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const HERO_IMAGE = "/images/hero-many-lenses.png";
+const HERO_IMAGE = "/images/All-Seen-By-Us-Header.jpg";
 
 export function Hero() {
   return (

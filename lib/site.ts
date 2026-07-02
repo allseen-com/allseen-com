@@ -12,8 +12,7 @@ export const SITE = {
   url: "https://allseen.com",
 } as const;
 
-export const LOGO_URL =
-  "https://allseen.com/wp-content/uploads/2024/04/Menu-Logo-Black.png";
+export const LOGO_URL = "/images/Menu-Logo-Black.png";
 
 export const CTA = {
   youtube: "https://www.youtube.com/@all_seen",

@@ -1,3 +1,5 @@
+import { LOGO_URL } from "@/lib/site";
+
 export type ShowcaseKind = "video" | "youtube" | "image" | "code";
 
 export type ShowcaseItem =
@@ -41,7 +43,7 @@ export const SHOWCASE_ITEMS: ShowcaseItem[] = [
     title: "Identity in motion",
     caption:
       "Drop campaign stills, UI captures, or mood boards here — same grid as video and code.",
-    src: "https://allseen.com/wp-content/uploads/2024/04/Menu-Logo-Black.png",
+    src: LOGO_URL,
     alt: "All Seen logo mark",
   },
   {
