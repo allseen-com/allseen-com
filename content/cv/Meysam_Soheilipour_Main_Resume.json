@@ -1,0 +1,194 @@
+{
+    "meta": {
+      "schemaName": "meysam-resume-schema",
+      "schemaVersion": "1.0.0",
+      "purpose": "Single source of truth for Meysam Soheilipour's resume content. Used to power the website resume page and to generate role-tailored resume versions. Edit values here first, then regenerate downstream documents/pages from this file.",
+      "lastUpdated": "2026-07-03",
+      "dateFormat": "YYYY-MM (ISO 8601, month precision). Use null for endDate on current roles.",
+      "atsNotes": "All text fields use plain ASCII-safe characters except the funnel-arrow list in trip-ways highlight #7, which uses the Unicode '→' for readability on the website. If generating a plain-text/ATS export, replace '→' with '->' or 'to'."
+    },
+    "basics": {
+      "name": "Meysam Soheilipour",
+      "label": "Growth Operator | AI-Native Marketing & Product | Scaling Systems & Marketplaces",
+      "summary": "Senior growth and AI product leader with over a decade of experience driving platform scale, digital transformation, and measurable revenue across travel tech, media, and e-commerce. Combines the enterprise discipline of corporate leadership (Red Ventures/CNET) with the full-stack resourcefulness of an entrepreneur who ran a global B2B2C marketplace of 1,000+ partners end-to-end. A hands-on operator and P&L-minded strategist adept at cross-functional leadership across product, engineering, data, and marketing. Possesses deep expertise in scaling acquisition channels (Organic & Paid) and bridging full-stack SEO with Answer Engine Optimization (AEO) and product-led growth, while building agentic AI workflows (n8n, Python, LLM orchestration) to automate complex operations and drive profitability.",
+      "citizenship": "US Citizen",
+      "location": {
+        "city": "Mexico City",
+        "country": "Mexico",
+        "remote": true,
+        "displayText": "Based in Mexico City (Remote)"
+      },
+      "contact": {
+        "email": "Soheil_dot@yahoo.com",
+        "phone": "(971) 267-9430"
+      },
+      "profiles": [
+        {
+          "network": "LinkedIn",
+          "displayText": "linkedin.com/in/meysamsoheili",
+          "url": "https://linkedin.com/in/meysamsoheili"
+        }
+      ]
+    },
+    "work": [
+      {
+        "id": "trip-ways",
+        "company": "Trip Ways",
+        "title": "Head of Product & Growth",
+        "titleSecondary": "AI-Driven Marketing & Automation",
+        "location": "Remote, Global",
+        "remote": true,
+        "startDate": "2023-12",
+        "endDate": null,
+        "isCurrent": true,
+        "highlights": [
+          "Managed operations and led development of a high-performance, cloud-based B2B2C travel marketplace connecting 1,000+ vendor partners across 90+ countries and spanning 20,000+ bookable tours and activities, built on a real-time booking system, scalable multi-vendor architecture, and agentic AI workflows.",
+          "Owned the end-to-end approval and technical integration for Google Things to Do, implementing strict data-quality validation, compliance workflows, and agentic AI pipelines to optimize structured data for thousands of partner tours.",
+          "Architected autonomous AI agent workflows for POI assignment and inventory type classification, incorporating evaluation pipelines and admin UX improvements to reduce manual review effort and increase output consistency across thousands of partner tours.",
+          "Built AI-assisted vendor-ops workflows and tooling (n8n + LLM pipelines, B2B vendor dashboards, vendor tiering) covering onboarding, content standardization, tagging, localization, and consent/compliance; reducing onboarding time from days to under 30 minutes, eliminating significant manual ops, and strengthening marketplace trust signals for scalable partner management.",
+          "Structured SEO and content systems across 4,500+ destinations, focusing on high-intent discovery and long-tail acquisition rather than vanity traffic. Shifted visibility toward product-led pages to improve conversion quality.",
+          "Delivered an estimated 8x ROAS on Meta and YouTube with a self-produced video campaign: writing, filming, and editing destination content in Thailand, Bali, and China.",
+          "Instrumented full-funnel analytics (visit → engagement → inquiry → booking → repeat) using GA4, GTM, and SQL pipelines to understand drop-offs, activation bottlenecks, and LTV signals across both vendors and travelers.",
+          "Developed AI-powered semantic search and recommendation systems using structured inventory + RAG-based assistants to improve discovery and planning."
+        ],
+        "keywords": [
+          "B2B2C marketplace", "Google Things To Do (GTTD)", "agentic AI workflows", "n8n",
+          "vendor operations", "POI classification", "structured data", "SEO", "full-funnel analytics",
+          "GA4", "GTM", "RAG", "semantic search", "product-led growth"
+        ]
+      },
+      {
+        "id": "red-ventures-cnet",
+        "company": "Red Ventures / CNET Media & Commerce",
+        "title": "Sr. Growth Marketing",
+        "titleSecondary": "Audience and SEO",
+        "location": "San Francisco, CA",
+        "remote": false,
+        "startDate": "2021-12",
+        "endDate": "2023-12",
+        "isCurrent": false,
+        "highlights": [
+          "Orchestrated audience growth and revenue optimization strategies for CNET's Media & Commerce vertical across SEO, On-site Video, YouTube, and Amazon Publishing; aligned Video, Editorial, Product, and Data teams through shared prioritization frameworks and performance KPIs.",
+          "Delivered $1.5M in incremental revenue during major shopping events (Prime Day, Black Friday) by owning data-driven strategy, deals lineups, and campaign optimizations.",
+          "Led cross-functional video optimization strategy across multiple platforms that increased the video traffic and revenue by 15%. Authored CNET video SEO playbook and best practices and lead strategy meetings to deliver and implement the best practices across multiple industries.",
+          "Managed day-to-day operations of Amazon publishing program, including content and SEO optimization that grew 600% in revenue in 6 months.",
+          "Managed cross-functional UX and testing initiatives on video and affiliate widget surfaces, lifting on-page conversions by 1% and affiliate partnership ROI by 7%.",
+          "Engineered end-to-end data pipelines (Big Query / Looker) and real-time BI dashboards integrating affiliate programs, traffic sources, and ad monetization; transformed disparate data into a unified commerce sales funnel view to drive editorial planning and content investments."
+        ],
+        "keywords": [
+          "SEO", "audience growth", "affiliate marketing", "Amazon Publishing", "BigQuery",
+          "Looker", "BI dashboards", "video optimization", "cross-functional leadership"
+        ]
+      },
+      {
+        "id": "china-ways",
+        "company": "China Ways LLC",
+        "title": "Director of Digital Marketing",
+        "titleSecondary": "Paid Acquisition & Campaign Management",
+        "location": "Portland, OR",
+        "remote": false,
+        "startDate": "2019-02",
+        "endDate": "2021-09",
+        "isCurrent": false,
+        "highlights": [
+          "Owned paid acquisition strategy and campaign management for a travel company, managing ~$500K in total Ad spend across Google Ads, Meta Ads, and Local Services Ads (LSAs), and achieving a blended 6x return on ad spend.",
+          "Managed OTA and affiliate distribution partnerships (Viator, TourRadar, Travelzoo, and Expedia), coordinating tracking and attribution, deal structures, and channel mix alongside paid campaigns.",
+          "Ran continuous A/B testing and performance analysis across Ad creative, landing pages, and offer structure; using GA and GTM for conversion tracking and attribution, to lower CPA and lift conversion rate."
+        ],
+        "keywords": [
+          "paid acquisition", "Google Ads", "Meta Ads", "Local Services Ads", "ROAS",
+          "OTA partnerships", "A/B testing", "conversion rate optimization"
+        ]
+      },
+      {
+        "id": "setare-ecommerce",
+        "company": "Setare E-Commerce Co.",
+        "title": "Co-Founder & Head of Growth",
+        "titleSecondary": null,
+        "location": "Tehran, Iran",
+        "remote": false,
+        "startDate": "2015-04",
+        "endDate": "2019-01",
+        "isCurrent": false,
+        "highlights": [
+          "Grew a Farsi-language digital media and e-commerce platform to ~10M monthly visitors, global rank ~999 (top 20 in Iran), and a library of ~80,000 resources across 900+ categories.",
+          "Achieved top-tier organic visibility (15M+ monthly sessions and ~85% organic share) through full-stack SEO, data backed content strategy, and high-performance WordPress design.",
+          "Architected and executed a large-scale data migration from a legacy CMS to a self-managed Nginx/WordPress stack on AWS; slashed infrastructure costs by 40% while optimizing performance to pass Google Core Web Vitals with a 90+ PageSpeed Insights score.",
+          "Built the organizational infrastructure for marketing, engineering, and sales from the ground up to scale the company to 50 people with full P&L accountability; integrated full-funnel SEO/SEM, lifecycle programs, and standardized operating guidelines to optimize pipeline quality, team throughput, and talent acquisition."
+        ],
+        "keywords": [
+          "co-founder", "full-stack SEO", "WordPress", "AWS migration", "Core Web Vitals",
+          "P&L ownership", "org building", "Farsi-language media"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "category": "Growth & GTM Leadership",
+        "keywords": [
+          "Executive ownership (P&L, vendor & stakeholder management)",
+          "Full-stack SEO & AEO (LLM/AI-search visibility)",
+          "Data-driven GTM strategy",
+          "DTC performance marketing",
+          "Partnerships & creator ecosystems",
+          "Messaging & positioning",
+          "Marketplace & platform delivery"
+        ]
+      },
+      {
+        "category": "AI & Agentic Automation",
+        "keywords": [
+          "Agentic workflow design & orchestration (Python, n8n, Claude/Anthropic API)",
+          "RAG architecture (Pinecone)",
+          "Vertex AI",
+          "LLM content ingestibility & AI-citation optimization",
+          "AI-assisted development & code review (Cursor, Claude Code)"
+        ]
+      },
+      {
+        "category": "Technical & Cloud Infrastructure",
+        "keywords": [
+          "Python", "SQL", "PHP", "MySQL",
+          "WordPress (Custom Plugin Development)",
+          "REST APIs & webhooks", "HTML/CSS/JS",
+          "AWS (S3, SES, CloudFront, IAM/Authentication)",
+          "Cloudflare (WAF & security)", "Git"
+        ]
+      },
+      {
+        "category": "Analytics & Experimentation",
+        "keywords": [
+          "GA4", "Google Search Console", "Google Tag Manager", "BigQuery", "Looker",
+          "Log-file & server-data analysis", "Conversion & ROAS analysis", "Performance forecasting"
+        ]
+      },
+      {
+        "category": "GTM Tools & Platforms",
+        "keywords": [
+          "Meta (Facebook/Instagram) Ads", "Google Ads", "HubSpot", "Airtable", "Zapier",
+          "n8n", "SEMrush", "Booking-engine/OTA systems (Bokun)"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Tehran University",
+        "studyType": "Master of Business Management",
+        "area": "Business Management",
+        "minor": "Marketing",
+        "startDate": "2013",
+        "endDate": "2015",
+        "location": "Tehran, Iran"
+      },
+      {
+        "institution": "Shahrekord University",
+        "studyType": "B.Sc.",
+        "area": "Mechanical Engineering",
+        "minor": "Software Engineering",
+        "startDate": "2006",
+        "endDate": "2010",
+        "location": "Shahrekord, Iran"
+      }
+    ]
+  }
+  

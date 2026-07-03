@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Syne } from "next/font/google";
 import "./globals.css";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
 import { SITE } from "@/lib/site";
 
 const dmSans = DM_Sans({
@@ -56,11 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${syne.variable}`}>
-      <body className="min-h-screen font-sans">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
-      </body>
+      <body className="min-h-screen font-sans">{children}</body>
     </html>
   );
 }
