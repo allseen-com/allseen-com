@@ -12,47 +12,68 @@ type ResumeViewProps = {
 export function ResumeView({ resume }: ResumeViewProps) {
   const { basics, work, skills, education, meta } = resume;
 
+  const linkClassName =
+    "underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent";
+
+  const linkedIn = basics.profiles.find(
+    (profile) => profile.network.toLowerCase() === "linkedin",
+  );
+
   const contactItems = [
-    { key: "location", label: "Location", node: basics.location.displayText },
-    { key: "citizenship", label: "Citizenship", node: basics.citizenship },
+    {
+      key: "citizenship",
+      label: "Citizenship",
+      node: <span className="whitespace-nowrap">{basics.citizenship}</span>,
+    },
+    {
+      key: "location",
+      label: "Location",
+      node: (
+        <span className="whitespace-nowrap">{basics.location.displayText}</span>
+      ),
+    },
     {
       key: "email",
       label: "Email",
       node: (
         <a
           href={`mailto:${basics.contact.email}`}
-          className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
+          className={`${linkClassName} whitespace-nowrap`}
         >
-          {basics.contact.email}
+          Email
         </a>
       ),
     },
     {
-      key: "phone",
-      label: "Phone",
+      key: "mobile",
+      label: "Mobile",
       node: (
         <a
           href={`tel:${basics.contact.phone.replace(/[^\d+]/g, "")}`}
-          className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
+          className={`${linkClassName} whitespace-nowrap`}
         >
-          {basics.contact.phone}
+          Mobile
         </a>
       ),
     },
-    ...basics.profiles.map((profile) => ({
-      key: profile.network,
-      label: profile.network,
-      node: (
-        <a
-          href={profile.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
-        >
-          {profile.displayText}
-        </a>
-      ),
-    })),
+    ...(linkedIn
+      ? [
+          {
+            key: "linkedin",
+            label: "LinkedIn",
+            node: (
+              <a
+                href={linkedIn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${linkClassName} whitespace-nowrap`}
+              >
+                LinkedIn
+              </a>
+            ),
+          },
+        ]
+      : []),
   ];
 
   return (
@@ -80,21 +101,16 @@ export function ResumeView({ resume }: ResumeViewProps) {
               {basics.label}
             </p>
 
-            <dl className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink/65 lg:flex-nowrap">
+            <dl className="mt-4 flex flex-wrap items-center gap-x-0 gap-y-1 text-sm text-ink/65">
               {contactItems.map((item, index) => (
-                <div key={item.key} className="flex items-center gap-x-4">
+                <div key={item.key} className="flex items-center">
                   {index > 0 ? (
-                    <span
-                      className="hidden text-ink/20 lg:inline"
-                      aria-hidden
-                    >
-                      ·
+                    <span className="mx-2.5 text-ink/25" aria-hidden>
+                      •
                     </span>
                   ) : null}
-                  <div className="flex items-center">
-                    <dt className="sr-only">{item.label}</dt>
-                    <dd>{item.node}</dd>
-                  </div>
+                  <dt className="sr-only">{item.label}</dt>
+                  <dd>{item.node}</dd>
                 </div>
               ))}
             </dl>
