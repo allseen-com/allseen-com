@@ -7,22 +7,34 @@ function rewriteTo(request: NextRequest, pathname: string) {
   return NextResponse.rewrite(url);
 }
 
+/** Paths that must resolve on the CV host (not redirected to /). */
+const CV_PASSTHROUGH = new Set([
+  "/robots.txt",
+  "/sitemap.xml",
+  "/site.webmanifest",
+]);
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const host = request.headers.get("host");
 
+  // Public JSON on every host (local /cv preview + production CV subdomain)
+  if (pathname === "/resume.json") {
+    return rewriteTo(request, "/cv/resume.json");
+  }
+
   // cv.allseen.com → internal /cv routes (clean public URLs)
   if (isCvHost(host)) {
-    if (pathname === "/resume.json") {
-      return rewriteTo(request, "/cv/resume.json");
-    }
-
     if (pathname === "/" || pathname === "") {
       return rewriteTo(request, "/cv");
     }
 
     // Allow direct /cv paths (local debugging on the CV host)
     if (pathname === "/cv" || pathname.startsWith("/cv/")) {
+      return NextResponse.next();
+    }
+
+    if (CV_PASSTHROUGH.has(pathname)) {
       return NextResponse.next();
     }
 
@@ -46,7 +58,7 @@ export const config = {
   matcher: [
     /*
      * Skip Next internals and static files.
-     * /cv and /resume.json must still run through middleware.
+     * /cv, /resume.json, /robots.txt, /sitemap.xml must still run through middleware.
      */
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|webmanifest)$).*)",
   ],

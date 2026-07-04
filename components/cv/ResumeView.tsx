@@ -1,82 +1,105 @@
-import {
-  formatDateRange,
-  getResumeJsonUrl,
-} from "@/lib/cv/resume";
+import Image from "next/image";
+import { formatDateRange } from "@/lib/cv/resume";
 import type { Resume } from "@/lib/cv/types";
 import { SITE } from "@/lib/site";
 
+const PROFILE_IMAGE = "/images/Meysam-Soheilipour.jpeg";
+
 type ResumeViewProps = {
   resume: Resume;
-  /** Public JSON URL shown to humans and crawlers (host-aware in page). */
-  jsonUrl?: string;
 };
 
-export function ResumeView({
-  resume,
-  jsonUrl = getResumeJsonUrl(),
-}: ResumeViewProps) {
+export function ResumeView({ resume }: ResumeViewProps) {
   const { basics, work, skills, education, meta } = resume;
 
+  const contactItems = [
+    { key: "location", label: "Location", node: basics.location.displayText },
+    { key: "citizenship", label: "Citizenship", node: basics.citizenship },
+    {
+      key: "email",
+      label: "Email",
+      node: (
+        <a
+          href={`mailto:${basics.contact.email}`}
+          className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
+        >
+          {basics.contact.email}
+        </a>
+      ),
+    },
+    {
+      key: "phone",
+      label: "Phone",
+      node: (
+        <a
+          href={`tel:${basics.contact.phone.replace(/[^\d+]/g, "")}`}
+          className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
+        >
+          {basics.contact.phone}
+        </a>
+      ),
+    },
+    ...basics.profiles.map((profile) => ({
+      key: profile.network,
+      label: profile.network,
+      node: (
+        <a
+          href={profile.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
+        >
+          {profile.displayText}
+        </a>
+      ),
+    })),
+  ];
+
   return (
-    <article className="cv-print mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+    <article className="cv-print mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
       <header className="border-b border-black/10 pb-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
           Curriculum Vitae
         </p>
-        <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-          {basics.name}
-        </h1>
-        <p className="mt-2 text-base font-medium leading-snug text-ink/80 sm:text-lg">
-          {basics.label}
-        </p>
 
-        <dl className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink/65">
-          <div>
-            <dt className="sr-only">Location</dt>
-            <dd>{basics.location.displayText}</dd>
+        <div className="mt-4 flex items-start gap-5 sm:gap-6">
+          <Image
+            src={PROFILE_IMAGE}
+            alt={basics.name}
+            width={112}
+            height={112}
+            className="h-24 w-24 shrink-0 rounded-full object-cover ring-1 ring-black/5 sm:h-28 sm:w-28"
+            priority
+          />
+
+          <div className="min-w-0 flex-1">
+            <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+              {basics.name}
+            </h1>
+            <p className="mt-2 text-base font-medium leading-snug text-ink/80 sm:text-lg">
+              {basics.label}
+            </p>
+
+            <dl className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink/65 lg:flex-nowrap">
+              {contactItems.map((item, index) => (
+                <div key={item.key} className="flex items-center gap-x-4">
+                  {index > 0 ? (
+                    <span
+                      className="hidden text-ink/20 lg:inline"
+                      aria-hidden
+                    >
+                      ·
+                    </span>
+                  ) : null}
+                  <div className="flex items-center">
+                    <dt className="sr-only">{item.label}</dt>
+                    <dd>{item.node}</dd>
+                  </div>
+                </div>
+              ))}
+            </dl>
           </div>
-          <div>
-            <dt className="sr-only">Citizenship</dt>
-            <dd>{basics.citizenship}</dd>
-          </div>
-          <div>
-            <dt className="sr-only">Email</dt>
-            <dd>
-              <a
-                href={`mailto:${basics.contact.email}`}
-                className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
-              >
-                {basics.contact.email}
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="sr-only">Phone</dt>
-            <dd>
-              <a
-                href={`tel:${basics.contact.phone.replace(/[^\d+]/g, "")}`}
-                className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
-              >
-                {basics.contact.phone}
-              </a>
-            </dd>
-          </div>
-          {basics.profiles.map((profile) => (
-            <div key={profile.network}>
-              <dt className="sr-only">{profile.network}</dt>
-              <dd>
-                <a
-                  href={profile.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent"
-                >
-                  {profile.displayText}
-                </a>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        </div>
       </header>
 
       <section className="mt-8" aria-labelledby="summary-heading">
@@ -100,27 +123,25 @@ export function ResumeView({
         </h2>
         <ul className="mt-5 space-y-8">
           {work.map((job) => (
-            <li key={job.id} className="border-t border-black/5 pt-8 first:border-t-0 first:pt-0">
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                <div>
-                  <h3 className="text-lg font-semibold tracking-tight text-ink">
-                    {job.title}
-                    {job.titleSecondary ? (
-                      <span className="font-normal text-ink/60">
-                        {" "}
-                        · {job.titleSecondary}
-                      </span>
-                    ) : null}
-                  </h3>
-                  <p className="mt-0.5 text-sm font-medium text-ink/80">
-                    {job.company}
-                  </p>
-                </div>
-                <p className="shrink-0 text-sm text-ink/50">
+            <li
+              key={job.id}
+              className="border-t border-black/5 pt-8 first:border-t-0 first:pt-0"
+            >
+              <div className="grid grid-cols-1 gap-x-6 gap-y-0.5 sm:grid-cols-[minmax(0,1fr)_auto]">
+                <h3 className="text-lg font-bold tracking-tight text-ink">
+                  {job.company}
+                </h3>
+                <p className="text-sm text-ink/50 sm:text-right">
                   {formatDateRange(job.startDate, job.endDate)}
                 </p>
+                <p className="text-[0.95rem] italic text-ink/60">
+                  {job.title}
+                  {job.titleSecondary ? ` · ${job.titleSecondary}` : ""}
+                </p>
+                <p className="text-sm italic text-ink/50 sm:text-right">
+                  {job.location}
+                </p>
               </div>
-              <p className="mt-1 text-sm text-ink/50">{job.location}</p>
               <ul className="mt-4 list-disc space-y-2 pl-5 text-[0.95rem] leading-relaxed text-ink/75">
                 {job.highlights.map((highlight, index) => (
                   <li key={`${job.id}-${index}`}>{highlight}</li>
@@ -204,7 +225,7 @@ export function ResumeView({
         </p>
         <p>
           <a
-            href={jsonUrl}
+            href="/resume.json"
             className="font-medium text-ink/60 underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink"
           >
             Machine-readable resume (JSON)

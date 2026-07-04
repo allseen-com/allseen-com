@@ -45,25 +45,76 @@ export function getResumeJsonUrl(): string {
   return `${CV_SITE.url}${CV_SITE.resumeJsonPath}`;
 }
 
-export function buildPersonJsonLd(resume: Resume) {
-  const { basics } = resume;
-  const sameAs = basics.profiles.map((profile) => profile.url);
+/** schema.org ProfilePage + Person graph for search and answer engines. */
+export function buildResumeJsonLd(resume: Resume) {
+  const { basics, work, skills, education } = resume;
+  const personId = `${CV_SITE.url}/#person`;
+  const pageId = `${CV_SITE.url}/#page`;
+
+  const knowsAbout = [
+    ...new Set(skills.flatMap((group) => group.keywords)),
+  ];
+
+  const worksFor = work.map((job) => ({
+    "@type": "Organization",
+    name: job.company,
+  }));
+
+  const alumniOf = education.map((item) => ({
+    "@type": "EducationalOrganization",
+    name: item.institution,
+  }));
+
+  const hasOccupation = work.map((job) => ({
+    "@type": "Occupation",
+    name: job.titleSecondary
+      ? `${job.title} — ${job.titleSecondary}`
+      : job.title,
+    occupationLocation: {
+      "@type": "Place",
+      name: job.location,
+    },
+  }));
 
   return {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: basics.name,
-    jobTitle: basics.label,
-    description: basics.summary,
-    email: basics.contact.email,
-    telephone: basics.contact.phone,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: basics.location.city,
-      addressCountry: basics.location.country,
-    },
-    url: CV_SITE.url,
-    sameAs,
-    nationality: basics.citizenship,
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": pageId,
+        url: CV_SITE.url,
+        name: `${basics.name} — Resume`,
+        description: basics.summary,
+        isPartOf: {
+          "@type": "WebSite",
+          name: basics.name,
+          url: CV_SITE.url,
+        },
+        mainEntity: { "@id": personId },
+        about: { "@id": personId },
+        relatedLink: getResumeJsonUrl(),
+      },
+      {
+        "@type": "Person",
+        "@id": personId,
+        name: basics.name,
+        jobTitle: basics.label,
+        description: basics.summary,
+        email: basics.contact.email,
+        telephone: basics.contact.phone,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: basics.location.city,
+          addressCountry: basics.location.country,
+        },
+        url: CV_SITE.url,
+        sameAs: basics.profiles.map((profile) => profile.url),
+        nationality: basics.citizenship,
+        worksFor,
+        alumniOf,
+        knowsAbout,
+        hasOccupation,
+      },
+    ],
   };
 }

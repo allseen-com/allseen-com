@@ -87,6 +87,6 @@ export const SOCIAL = [
 ] as const;
 
 export const LEGAL = [
-  { label: "Terms of Service", href: "https://allseen.com/terms-of-service/" },
-  { label: "Privacy Policy", href: "https://allseen.com/privacy-policy/" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
 ] as const;

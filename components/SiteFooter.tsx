@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LEGAL, SITE, SOCIAL } from "@/lib/site";
 
 export function SiteFooter() {
@@ -43,14 +44,12 @@ export function SiteFooter() {
               <ul className="mt-3 space-y-2">
                 {LEGAL.map((l) => (
                   <li key={l.label}>
-                    <a
+                    <Link
                       href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="text-sm text-ink/70 transition-colors hover:text-ink"
                     >
                       {l.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

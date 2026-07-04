@@ -1,21 +1,22 @@
 import { ResumeView } from "@/components/cv/ResumeView";
-import {
-  buildPersonJsonLd,
-  getResume,
-  getResumeJsonUrl,
-} from "@/lib/cv/resume";
+import { buildResumeJsonLd, getResume } from "@/lib/cv/resume";
+
+/** Fully static HTML — resume body is in the first response, no client fetch. */
+export const dynamic = "force-static";
 
 export default function CvPage() {
   const resume = getResume();
-  const jsonLd = buildPersonJsonLd(resume);
+  const jsonLd = buildResumeJsonLd(resume);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
-      <ResumeView resume={resume} jsonUrl={getResumeJsonUrl()} />
+      <ResumeView resume={resume} />
     </>
   );
 }
