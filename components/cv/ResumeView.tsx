@@ -12,6 +12,13 @@ type ResumeViewProps = {
 export function ResumeView({ resume }: ResumeViewProps) {
   const { basics, work, skills, education, meta } = resume;
 
+  const linkClassName =
+    "underline decoration-black/15 underline-offset-2 transition-colors hover:text-ink hover:decoration-accent";
+
+  const linkedIn = basics.profiles.find(
+    (profile) => profile.network.toLowerCase() === "linkedin",
+  );
+
   const contactItems = [
     {
       key: "location",
@@ -25,6 +32,48 @@ export function ResumeView({ resume }: ResumeViewProps) {
       label: "Citizenship",
       node: <span className="whitespace-nowrap">{basics.citizenship}</span>,
     },
+    {
+      key: "email",
+      label: "Email",
+      node: (
+        <a
+          href={`mailto:${basics.contact.email}`}
+          className={`${linkClassName} whitespace-nowrap`}
+        >
+          Email
+        </a>
+      ),
+    },
+    {
+      key: "mobile",
+      label: "Mobile",
+      node: (
+        <a
+          href={`tel:${basics.contact.phone.replace(/[^\d+]/g, "")}`}
+          className={`${linkClassName} whitespace-nowrap`}
+        >
+          Mobile
+        </a>
+      ),
+    },
+    ...(linkedIn
+      ? [
+          {
+            key: "linkedin",
+            label: "LinkedIn",
+            node: (
+              <a
+                href={linkedIn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${linkClassName} whitespace-nowrap`}
+              >
+                LinkedIn
+              </a>
+            ),
+          },
+        ]
+      : []),
   ];
 
   return (
