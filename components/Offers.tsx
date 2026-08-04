@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { OFFERS } from "@/lib/offers";
 import { CTA } from "@/lib/site";
 
@@ -36,7 +37,16 @@ export function Offers() {
                 0{index + 1}
               </p>
               <h3 className="font-display mt-3 text-xl font-bold tracking-tight text-ink">
-                {offer.name}
+                {offer.href ? (
+                  <Link
+                    href={offer.href}
+                    className="transition-colors hover:text-accent"
+                  >
+                    {offer.name}
+                  </Link>
+                ) : (
+                  offer.name
+                )}
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/65">
                 {offer.deliverable}
@@ -44,6 +54,14 @@ export function Offers() {
               <div className="mt-6 space-y-1 border-t border-black/5 pt-4">
                 <p className="text-sm font-semibold text-ink">{offer.price}</p>
                 <p className="text-xs text-ink/50">{offer.timeline}</p>
+                {offer.href ? (
+                  <Link
+                    href={offer.href}
+                    className="mt-3 inline-block text-sm font-semibold text-accent transition-colors hover:text-accent-hover"
+                  >
+                    View Audit Sprint →
+                  </Link>
+                ) : null}
               </div>
             </li>
           ))}
@@ -58,14 +76,12 @@ export function Offers() {
             short, specific read on where automation or agents would buy back
             the most time — free, no pitch deck.
           </p>
-          <a
-            href={CTA.auditWhatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={CTA.auditPage}
             className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
           >
             Get a free automation gap check
-          </a>
+          </Link>
         </div>
       </div>
     </section>

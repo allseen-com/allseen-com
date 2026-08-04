@@ -16,20 +16,41 @@ export const LOGO_URL = "/images/Menu-Logo-Black.png";
 export const CTA = {
   youtube: "https://www.youtube.com/@all_seen",
   whatsapp: "https://wa.me/19712679430?text=AllSeen.com",
-  /** Primary homepage conversion path until the Audit Sprint offer page ships. */
+  /** Primary conversion path for the Audit Sprint / gap check. */
   auditWhatsapp:
     "https://wa.me/19712679430?text=Hi%20%E2%80%94%20I%27d%20like%20a%20free%20automation%20gap%20check%20for%20my%20business.",
+  auditPage: "/audit",
 } as const;
 
 export type NavItem = {
   label: string;
   href: string;
   external?: boolean;
-  icon: "rocket" | "external" | "binoculars" | "lock" | "id" | "film";
+  icon: "audit" | "layers" | "binoculars" | "rocket" | "external" | "lock" | "id" | "film";
 };
 
-/** Primary header navigation — order matches current live menu. */
+/** Homepage-focused primary nav — one offer signal. */
 export const NAV_ITEMS: NavItem[] = [
+  {
+    label: "Audit",
+    href: "/audit",
+    icon: "audit",
+  },
+  {
+    label: "Offers",
+    href: "/#offers",
+    icon: "layers",
+  },
+  {
+    label: "TripWays",
+    href: "https://tripways.com",
+    external: true,
+    icon: "binoculars",
+  },
+];
+
+/** Secondary assets — kept reachable from the footer, not the main nav. */
+export const MORE_LINKS: NavItem[] = [
   {
     label: "N8N",
     href: "https://n8n.allseen.com",
@@ -41,12 +62,6 @@ export const NAV_ITEMS: NavItem[] = [
     href: "https://poe.com/AllSeen",
     external: true,
     icon: "external",
-  },
-  {
-    label: "TripWays",
-    href: "https://tripways.com",
-    external: true,
-    icon: "binoculars",
   },
   {
     label: "OTSI",

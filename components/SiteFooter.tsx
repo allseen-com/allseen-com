@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LEGAL, SITE, SOCIAL } from "@/lib/site";
+import { LEGAL, MORE_LINKS, SITE, SOCIAL } from "@/lib/site";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -17,7 +17,27 @@ export function SiteFooter() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8 sm:flex-row sm:gap-16">
+          <div className="flex flex-col gap-8 sm:flex-row sm:gap-12 lg:gap-16">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-ink/40">
+                More
+              </p>
+              <ul className="mt-3 space-y-2">
+                {MORE_LINKS.map((item) => (
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      {...(item.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="text-sm text-ink/70 transition-colors hover:text-ink"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-ink/40">
                 Social

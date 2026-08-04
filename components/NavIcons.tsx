@@ -4,6 +4,49 @@ const className = "h-4 w-4 shrink-0 text-ink";
 
 export function NavIcon({ icon }: Pick<NavItem, "icon">) {
   switch (icon) {
+    case "audit":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M9 11l2 2 4-4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M14 3v5h5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case "layers":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="m12 3 9 5-9 5-9-5 9-5Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          <path
+            d="m3 12 9 5 9-5M3 16.5 12 21.5l9-5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
     case "rocket":
       return (
         <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
