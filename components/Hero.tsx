@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { CTA, SITE } from "@/lib/site";
 
 const HERO_IMAGE = "/images/All-Seen-By-Us-Header.jpg";
 
@@ -34,28 +32,6 @@ export function Hero() {
             </span>{" "}
             by us.
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/65 sm:text-lg">
-            I automate lean businesses the way I automated my own — Trip Ways
-            runs a global travel marketplace as a team of one. I&apos;ll build
-            the same leverage into yours.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link
-              href={CTA.auditPage}
-              className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
-            >
-              Get a free automation gap check
-            </Link>
-            <a
-              href="#tripways"
-              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-ink/70 transition-colors hover:bg-black/[0.04] hover:text-ink"
-            >
-              See the Trip Ways proof
-            </a>
-          </div>
-          <p className="mt-4 text-xs font-medium uppercase tracking-[0.16em] text-ink/40">
-            {SITE.name} · n8n · AI ops · agentification
-          </p>
         </div>
 
         <div className="relative mx-auto w-full min-w-0 max-w-lg lg:mx-0 lg:max-w-none">

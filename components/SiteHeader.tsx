@@ -17,57 +17,37 @@ function ChartIcon() {
   );
 }
 
-function NavLink({
-  item,
-  className,
-}: {
-  item: (typeof NAV_ITEMS)[number];
-  className: string;
-}) {
-  const externalProps = item.external
-    ? { target: "_blank" as const, rel: "noopener noreferrer" }
-    : {};
-
-  if (item.href.startsWith("/")) {
-    return (
-      <Link href={item.href} className={className}>
-        <NavIcon icon={item.icon} />
-        <span>{item.label}</span>
-      </Link>
-    );
-  }
-
-  return (
-    <a href={item.href} {...externalProps} className={className}>
-      <NavIcon icon={item.icon} />
-      <span>{item.label}</span>
-    </a>
-  );
-}
-
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/5 bg-surface/90 backdrop-blur-md">
       <div className="mx-auto grid max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:px-8">
-        <Link
-          href={CTA.auditPage}
+        <a
+          href={CTA.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center gap-2 justify-self-start rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
         >
           <ChartIcon />
-          <span className="hidden sm:inline">Gap check</span>
-          <span className="sm:hidden">Audit</span>
-        </Link>
+          <span className="hidden sm:inline">Chat with Human</span>
+          <span className="sm:hidden">Chat</span>
+        </a>
 
         <nav
           className="hidden justify-center justify-self-center lg:flex lg:items-center lg:gap-0.5"
           aria-label="Primary"
         >
           {NAV_ITEMS.map((item) => (
-            <NavLink
+            <a
               key={item.label}
-              item={item}
+              href={item.href}
+              {...(item.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className="flex items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-black/[0.04] hover:text-ink"
-            />
+            >
+              <NavIcon icon={item.icon} />
+              <span>{item.label}</span>
+            </a>
           ))}
         </nav>
 
@@ -91,11 +71,17 @@ export function SiteHeader() {
         aria-label="Primary mobile"
       >
         {NAV_ITEMS.map((item) => (
-          <NavLink
+          <a
             key={item.label}
-            item={item}
+            href={item.href}
+            {...(item.external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
             className="inline-flex items-center gap-1 rounded-full bg-black/[0.04] px-2.5 py-1 text-xs font-medium text-ink"
-          />
+          >
+            <NavIcon icon={item.icon} />
+            {item.label}
+          </a>
         ))}
       </nav>
     </header>

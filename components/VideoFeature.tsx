@@ -1,7 +1,3 @@
-/**
- * Full-bleed YouTube feature section (dark mist + grain + hover CTA).
- * Kept for reuse with a Trip Ways / case-study video — not currently on the homepage.
- */
 type VideoFeatureProps = {
   title: string;
   description: string;

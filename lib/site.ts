@@ -1,13 +1,14 @@
 /**
- * Single source of truth for outbound URLs and brand copy.
+ * Single source of truth for outbound URLs.
+ * Replace placeholder targets when you have final destinations.
  */
 
 export const SITE = {
   name: "All Seen",
   /** Browser `<title>` and social previews — brand name first. */
-  title: "All Seen — Automation for lean businesses",
+  title: "All Seen — Technology, Art, Adventure",
   description:
-    "I automate lean businesses the way I automated my own. Trip Ways runs a global travel marketplace as a team of one — I'll build the same leverage into yours with n8n, AI agents, and practical ops systems.",
+    "Cutting-edge platforms and AI-driven solutions to help individuals and businesses improve performance through advanced automation.",
   url: "https://allseen.com",
 } as const;
 
@@ -15,42 +16,19 @@ export const LOGO_URL = "/images/Menu-Logo-Black.png";
 
 export const CTA = {
   youtube: "https://www.youtube.com/@all_seen",
-  whatsapp: "https://wa.me/19712679430?text=AllSeen.com",
-  /** Primary conversion path for the Audit Sprint / gap check. */
-  auditWhatsapp:
-    "https://wa.me/19712679430?text=Hi%20%E2%80%94%20I%27d%20like%20a%20free%20automation%20gap%20check%20for%20my%20business.",
-  auditPage: "/audit",
+  whatsapp:
+    "https://wa.me/19712679430?text=AllSeen.com",
 } as const;
 
 export type NavItem = {
   label: string;
   href: string;
   external?: boolean;
-  icon: "audit" | "layers" | "binoculars" | "rocket" | "external" | "lock" | "id" | "film";
+  icon: "rocket" | "external" | "binoculars" | "lock" | "id" | "film";
 };
 
-/** Homepage-focused primary nav — one offer signal. */
+/** Primary header navigation — order matches current live menu. */
 export const NAV_ITEMS: NavItem[] = [
-  {
-    label: "Audit",
-    href: "/audit",
-    icon: "audit",
-  },
-  {
-    label: "Offers",
-    href: "/#offers",
-    icon: "layers",
-  },
-  {
-    label: "TripWays",
-    href: "https://tripways.com",
-    external: true,
-    icon: "binoculars",
-  },
-];
-
-/** Secondary assets — kept reachable from the footer, not the main nav. */
-export const MORE_LINKS: NavItem[] = [
   {
     label: "N8N",
     href: "https://n8n.allseen.com",
@@ -62,6 +40,12 @@ export const MORE_LINKS: NavItem[] = [
     href: "https://poe.com/AllSeen",
     external: true,
     icon: "external",
+  },
+  {
+    label: "TripWays",
+    href: "https://tripways.com",
+    external: true,
+    icon: "binoculars",
   },
   {
     label: "OTSI",
