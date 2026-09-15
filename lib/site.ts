@@ -24,11 +24,16 @@ export type NavItem = {
   label: string;
   href: string;
   external?: boolean;
-  icon: "rocket" | "external" | "binoculars" | "lock" | "id" | "film";
+  icon: "rocket" | "external" | "binoculars" | "lock" | "id" | "film" | "spark";
 };
 
 /** Primary header navigation — order matches current live menu. */
 export const NAV_ITEMS: NavItem[] = [
+  {
+    label: "Services",
+    href: "/services",
+    icon: "spark",
+  },
   {
     label: "N8N",
     href: "https://n8n.allseen.com",
