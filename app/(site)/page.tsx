@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 
 const FEATURED_VIDEO = {
   title: "All Seen — The Collection",
-  description: `Scenes from San Francisco and beyond, shot by us — the opening reel for the ${SITE.name} channel. No deep meaning, just a collection: through many lenses, all seen by us.`,
   youtubeVideoId: "q-cOesuqo_w",
 };
 
@@ -50,7 +49,6 @@ export default function HomePage() {
 
       <VideoFeature
         title={FEATURED_VIDEO.title}
-        description={FEATURED_VIDEO.description}
         youtubeVideoId={FEATURED_VIDEO.youtubeVideoId}
       />
     </>
