@@ -3,7 +3,7 @@ import { formatDateRange } from "@/lib/cv/resume";
 import type { Resume } from "@/lib/cv/types";
 import { SITE } from "@/lib/site";
 
-const PROFILE_IMAGE = "/images/Meysam-Soheilipour.jpeg";
+const PROFILE_IMAGE = "/images/Meysam-Soheilipour-2026.jpeg";
 
 type ResumeViewProps = {
   resume: Resume;
