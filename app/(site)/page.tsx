@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { VideoFeature } from "@/components/VideoFeature";
-import { SITE } from "@/lib/site";
+import { VerticalCards } from "@/components/VerticalCards";
+import { CTA, SITE } from "@/lib/site";
 
 /** Homepage: brand-led title, no layout `title.template` suffix. */
 export const metadata: Metadata = {
@@ -49,6 +50,26 @@ export default function HomePage() {
             and businesses improve performance through advanced automation and
             AI-driven solutions.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-surface px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <VerticalCards />
+          <div className="mt-12 text-center">
+            <a
+              href={CTA.consulting}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-semibold text-white shadow-sm transition-colors hover:bg-accent-hover"
+            >
+              Get a free consultation
+            </a>
+            <p className="mt-3 text-sm text-ink/55">
+              Tell us your biggest bottleneck on WhatsApp. We&apos;ll reply with
+              where AI can help.
+            </p>
+          </div>
         </div>
       </section>
     </>

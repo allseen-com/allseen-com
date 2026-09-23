@@ -18,6 +18,10 @@ export const CTA = {
   youtube: "https://www.youtube.com/@all_seen",
   whatsapp:
     "https://wa.me/19712679430?text=AllSeen.com",
+  /** Homepage consulting funnel — prefilled to prompt a problem statement. */
+  consulting: `https://wa.me/19712679430?text=${encodeURIComponent(
+    "Hi All Seen, I'd like a free consultation.\n\nMy business: \nOur biggest bottleneck: ",
+  )}`,
 } as const;
 
 export type NavItem = {
