@@ -1,5 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { CV_SITE, isCvHost, isMainHost } from "@/lib/cv/site";
+import {
+  CV_SITE,
+  isCvHost,
+  isLegacyCvHost,
+  isMainHost,
+} from "@/lib/cv/site";
 
 function rewriteTo(request: NextRequest, pathname: string) {
   const url = request.nextUrl.clone();
@@ -23,7 +28,15 @@ export function middleware(request: NextRequest) {
     return rewriteTo(request, "/cv/resume.json");
   }
 
-  // cv.allseen.com → internal /cv routes (clean public URLs)
+  // cv.allseen.com → meysam.allseen.com, keeping the path
+  if (isLegacyCvHost(host)) {
+    return NextResponse.redirect(
+      new URL(`${pathname}${request.nextUrl.search}`, CV_SITE.url),
+      308,
+    );
+  }
+
+  // meysam.allseen.com → internal /cv routes (clean public URLs)
   if (isCvHost(host)) {
     if (pathname === "/" || pathname === "") {
       return rewriteTo(request, "/cv");

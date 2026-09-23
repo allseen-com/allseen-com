@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { CV_SITE } from "@/lib/cv/site";
 
 type Vertical = {
   eyebrow: string;
@@ -21,7 +22,7 @@ const VERTICALS: Vertical[] = [
     description:
       "Meysam Soheilipour builds and runs the AI systems behind All Seen, from automation pipelines to a 20,000-listing marketplace.",
     reveal: "See the full CV",
-    href: "https://cv.allseen.com/",
+    href: `${CV_SITE.url}/`,
     external: true,
     visual: (
       <Image

@@ -79,9 +79,27 @@ export function ResumeView({ resume }: ResumeViewProps) {
   return (
     <article className="cv-print mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
       <header className="border-b border-black/10 pb-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-          Curriculum Vitae
-        </p>
+        <div className="flex items-center gap-3">
+          <a
+            href={SITE.url}
+            aria-label={`Back to ${SITE.name}`}
+            title={`Back to ${SITE.name}`}
+            className="-ml-1.5 inline-flex h-7 w-7 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-black/5 hover:text-ink print:hidden"
+          >
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path
+                d="M19 12H5M11 6l-6 6 6 6"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            Curriculum Vitae
+          </p>
+        </div>
 
         <div className="mt-4 flex items-start gap-5 sm:gap-6">
           <Image

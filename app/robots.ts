@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import { CV_SITE, isCvHost } from "@/lib/cv/site";
 import { SITE } from "@/lib/site";
 
-/** Host-aware: cv.allseen.com vs allseen.com. */
+/** Host-aware: meysam.allseen.com vs allseen.com. */
 export const dynamic = "force-dynamic";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {

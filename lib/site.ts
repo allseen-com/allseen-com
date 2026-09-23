@@ -1,3 +1,5 @@
+import { CV_SITE } from "@/lib/cv/site";
+
 /**
  * Single source of truth for outbound URLs.
  * Replace placeholder targets when you have final destinations.
@@ -64,7 +66,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "CV",
-    href: "https://cv.allseen.com/",
+    href: `${CV_SITE.url}/`,
     external: true,
     icon: "id",
   },
