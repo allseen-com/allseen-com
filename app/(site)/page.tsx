@@ -31,6 +31,11 @@ export default function HomePage() {
     <>
       <Hero />
 
+      <VideoFeature
+        title={FEATURED_VIDEO.title}
+        youtubeVideoId={FEATURED_VIDEO.youtubeVideoId}
+      />
+
       <section className="border-y border-black/5 bg-white px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="font-display text-3xl font-bold leading-[1.12] tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1] xl:text-5xl xl:leading-tight">
@@ -46,11 +51,6 @@ export default function HomePage() {
           </p>
         </div>
       </section>
-
-      <VideoFeature
-        title={FEATURED_VIDEO.title}
-        youtubeVideoId={FEATURED_VIDEO.youtubeVideoId}
-      />
     </>
   );
 }
